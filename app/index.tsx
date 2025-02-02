@@ -1,5 +1,4 @@
 import { Image, StyleSheet, Platform, Button } from 'react-native';
-import { useRouter } from 'expo-router';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Link, Stack } from 'expo-router';
@@ -12,7 +11,7 @@ export default function LoginScreen(){
         <Stack.Screen options={{ title: 'Welcome Page'}} />
         <ThemedView>
             <ThemedText>Login Screen</ThemedText>
-            <Link href="/(tabs)">Go to tabs</Link>
+            <Link replace href="/(tabs)">Go to tabs</Link>
         </ThemedView>
         </>
     );
