@@ -11,7 +11,7 @@ interface TextInputProps {
 }
 
 
-const TextInputField: React.FC<TextInputProps> = ({ placeholder, onChangeText, value, label}) => {
+const ThemedTextInput: React.FC<TextInputProps> = ({ placeholder, onChangeText, value, label}) => {
 
     const handleChangeText = (text: string) => {
         onChangeText(text);
@@ -26,4 +26,4 @@ const TextInputField: React.FC<TextInputProps> = ({ placeholder, onChangeText, v
     );
 }
 
-export default TextInputField;
+export default ThemedTextInput;
