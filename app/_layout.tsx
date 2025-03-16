@@ -5,7 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
+import { Slot } from 'expo-router';
+import { AuthProvider } from '../AuthContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 import '../src/index.css'
@@ -14,6 +15,7 @@ import '../src/index.css'
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -30,12 +32,8 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack> 
-        <Stack.Screen name='index' />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+   <AuthProvider>
+    <Slot />
+   </AuthProvider>
   );
 }
