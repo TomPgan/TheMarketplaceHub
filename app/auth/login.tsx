@@ -3,12 +3,8 @@ import { View, Text, Button, SafeAreaView, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '../../AuthContext'
 import ThemedTextInput from '@/components/ThemedTextInput';
-
+import GoogleLoginButton from '@/components/googleLoginButton';
 const LoginScreen = () => {
-
-// Assetst
-    const LOGO = require('../../assets/images/TheMarketplaceHubLogo-sample.png')
-
 
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
@@ -53,31 +49,35 @@ const LoginScreen = () => {
     
 
     return(
-        <SafeAreaView>
-        <View>
-            <Image alt='Logo' source={require('../../assets/images/TheMarketplaceHubLogo-sample.png')}/>
+        <SafeAreaView className='bg-Light-red min-h-screen flex justify-center'>
+        <View className='flex justify-center pb-1'>
+            <Image className="mx-auto"alt='Logo' source={require('../../assets/images/TheMarketplaceHubLogo-sample.png')}/>
         </View>
-        <View>
-            <Text>This is the Login Screen</Text>
+        <View className='flex'>
+           
             <ThemedTextInput 
                 label='Enter Email'
-                value={email}
                 placeholder='Enter Email'
                 onChangeText={handleEmailChange}
             />
              {error&& <Text>{error}</Text>}
             <ThemedTextInput 
-                label='"Enter password'
-                value={password}
-                placeholder='Password'
+                label='Enter password'
+                placeholder='Enter Password'
                 onChangeText={handlePasswordChange}
             />
            {passwordError && <Text>{passwordError}</Text>}
            {formErrorMessage && <Text>{formErrorMessage}</Text>}
-            <Button 
-                title='Login'
-                onPress={handleLogin}
-            />
+           <View className='mt-5 mr-6 ml-6'>
+                <View className='bg-Licorice rounded-full'>
+                    <Button
+                        title='Login'
+                        onPress={handleLogin}
+                        color='#ffffff'
+                    />
+                </View>
+                <GoogleLoginButton />
+            </View>
         </View>
         </SafeAreaView>
     );

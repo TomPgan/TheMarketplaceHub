@@ -10,9 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'Baby-powder': '#FBFEFB',
-        'Mint-cream': '#F0F7F4',
-        'Space-cadet': '#111D4A'
+        "Light-red": '#ff7373',
+        "Licorice": '#2a1b1f'
       }
     },
   },
